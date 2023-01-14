@@ -39,4 +39,7 @@ luac.out
 *.x86_64
 *.hex
 
+# CUSTOM
 .DS_Store
+Lua-Collections.rbxl.lock
+

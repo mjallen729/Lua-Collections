@@ -4,7 +4,7 @@ LinkedStack.__index = LinkedStack
 local LinkedList = require(script.Parent.LinkedList)
 
 -- Create a new linked stack, a linked list based implementation of stack.
--- Allows for array casting if desired (last item will be top of stack)
+-- Allows for array casting if desired (last item will be last in queue)
 function LinkedStack.new(...)
 	local linkedstack = {}
 	setmetatable(linkedstack, LinkedStack)

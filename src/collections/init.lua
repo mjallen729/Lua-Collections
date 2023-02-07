@@ -1,13 +1,10 @@
 --[[
 Lua Collections v1.0
 DATA STRUCTURES:
-	LinkedList, @TODO SkipList
+	LinkedList
 	Stack, LinkedStack
 	Queue, LinkedQueue
-	BinarySearchTree, @TODO RedBlackTree
-	@TODO MinHeap, @TODO MaxHeap
-	@TODO Graph
-	@TODO DefaultDict
+	BinarySearchTree
 	
 SEARCH ALGORITHMS:
 	Breadth-First (BFS)
@@ -16,7 +13,6 @@ SEARCH ALGORITHMS:
 
 SORTING ALGORITHMS:
 	QuickSort
-
 	
 ]]
 

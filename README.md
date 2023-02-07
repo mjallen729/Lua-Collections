@@ -1,4 +1,4 @@
-# Lua-Collections v1.0
+# Lua-Collections v1.1
  A collections library for Roblox developers.
 
 ## Features

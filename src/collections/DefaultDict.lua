@@ -5,6 +5,11 @@ DefaultDict.__index = DefaultDict
 
 -- Create a new DefaultDict using 'factory' as the factory function
 -- Read more about DefaultDict in Python's collections library docs
-function DefaultDict.new(factory) end
+function DefaultDict.new(factory)
+	local defaultdict = {}
+	setmetatable(defaultdict, DefaultDict)
+
+	
+end
 
 return DefaultDict

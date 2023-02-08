@@ -10,7 +10,6 @@ DATA STRUCTURES:
 	MinHeap
 	MaxHeap
 	Graph
-	DefaultDict
 	
 SEARCH ALGORITHMS:
 	A*

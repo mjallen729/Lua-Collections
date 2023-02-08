@@ -14,9 +14,4 @@ end
 print(dd)
 print(#dd)
 
-c = 0
-for i in pairs(dd) do
-	c += 1
-end
-
-print(c)
+print(ds.DefaultDict.size(dd))

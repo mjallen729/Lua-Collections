@@ -20,7 +20,10 @@ function DefaultDict.new(factory)
 	defaultdict.buffer = {}
 	defaultdict.length = 0
 	defaultdict.buffer_fac = {}
-	defaultdict.buffer_fac.__index = factory
+	defaultdict.buffer_fac.__index = function(table, index)
+		table[index] = factory()
+		
+	end
 
 	setmetatable(defaultdict.buffer, defaultdict.buffer_fac)
 	

@@ -1,7 +1,8 @@
-URGENT:
+MISC:
 - Change all length() methods to size()
 - add .__len metamethod to all objects (return call to :size())
 - change length property to size in all objects
+- add __tostring() method to all objects for final release
 
 DATA STRUCTURES:
 	SkipList

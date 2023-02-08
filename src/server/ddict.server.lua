@@ -1,12 +1,11 @@
 ds = require(game.ServerScriptService.Collections)
 
 function f()
-	print("A VALUE DOES NOT EXIST")
+	return 0
 end
 
 dd = ds.DefaultDict.new(f)
 
-print(dd)
-print(getmetatable(dd))
+dd:get("hi") += 17 -- this works!
 
-dd:get("hi") -- this works! 
+print(dd)

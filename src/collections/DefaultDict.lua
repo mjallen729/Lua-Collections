@@ -1,4 +1,5 @@
--- Type of table that calls a factory function to supply missing values
+-- Type of table that calls a factory function to supply missing values.
+-- NOTE: "_pr" cannot be used as an index
 local DefaultDict = {}
 DefaultDict.__index = DefaultDict
 
@@ -13,28 +14,45 @@ function DefaultDict.new(factory)
 
 	end
 
-	-- idea: store buffer table inside of new instance like queue does
-	-- store metatable for buffer inside local object with metamethod __index
-	-- for __index metamethod, include the factory function
-
-	defaultdict.buffer = {}
-	defaultdict.length = 0
-	defaultdict.buffer_fac = {}
-	defaultdict.buffer_fac.__index = function(table, index)
+	defaultdict._pr = {}  -- index stores properties
+	defaultdict._pr["__index"] = function(table, index)
 		table[index] = factory()
-		
+	
 	end
 
-	setmetatable(defaultdict.buffer, defaultdict.buffer_fac)
+	setmetatable(defaultdict, defaultdict._pr)
 	
 	return defaultdict
 
 end
 
-function DefaultDict:get(index)
-	return self.buffer[index]
-	
+-- Return contents of DefaultDict as a table
+-- Essential for looping and counting
+function DefaultDict:toList()
+	local t = {}
+
+	for i,v in pairs(self) do
+		if i ~= "_pr" then
+			t[i] = v
+
+		end
+
+	end
+
+	return t
+
 end
 
+function DefaultDict:size()
+	local c = -1 -- ignores the properties index
+
+	for i,v in pairs(self) do
+		c += 1
+
+	end
+
+	return c
+	
+end
 
 return DefaultDict

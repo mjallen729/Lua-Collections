@@ -33,6 +33,4 @@ collections['LinkedQueue'] = require(script.LinkedQueue)
 collections['TreeNode'] = require(script.TreeNode)
 collections['BinarySearchTree'] = require(script.BinarySearchTree)
 
-collections['DefaultDict'] = require(script.DefaultDict)
-
 return collections

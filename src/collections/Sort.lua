@@ -1,12 +1,9 @@
--- The following functions take an UNSORTED array as an input & sort it using the algorithm of your choice.
--- It should work for both List<String> and List<Number> (but NOT List<String & Number>)
--- Algorithms sort from least to greatest
+-- Take an UNSORTED array as input & sort (ascending) using the algorithm of your choice.
+-- Works for both List<String> and List<Number> (but NOT List<String & Number>)
 local Sort = {}
-Sort.__index = Sort
 
--- TODO: BubbleSort
 -- Helper method for QuickSort
-function partition(arr, low, high)
+local function partition(arr, low, high)
 	local pivot = arr[high]
 	local i = low - 1
 
@@ -28,8 +25,8 @@ function partition(arr, low, high)
 	return i + 1
 end
 
--- Recursive agent
-function qSort(arr, low, high)
+-- Recursive agent for QuickSort
+local function qSort(arr, low, high)
 	if low < high then
 		local pi = partition(arr, low, high)
 
@@ -67,8 +64,6 @@ end
 -- Worst space: O(n)
 function Sort.MergeSort(arr) end
 
--- Avg time: O(nlog(n))
--- Worst space: O(1)
-function Sort.HeapSort(arr) end
+function Sort.TimSort(arr) end
 
 return Sort

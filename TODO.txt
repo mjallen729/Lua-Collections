@@ -15,4 +15,5 @@ SEARCH ALGORITHMS:
 	A*
 
 SORTING ALGORITHMS:
-	BubbleSort
+	TimSort
+	MergeSort

@@ -78,7 +78,7 @@ function Queue:pop()
 	return elem
 end
 
-function Queue:length()
+function Queue:size()
 	return self.length
 end
 

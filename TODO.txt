@@ -1,3 +1,7 @@
+URGENT:
+- Change all length() methods to size()
+- add .__len metamethod to all objects (return call to :size())
+
 DATA STRUCTURES:
 	SkipList
 	RedBlackTree

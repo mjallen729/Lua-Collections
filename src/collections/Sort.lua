@@ -74,7 +74,7 @@ function Sort.MergeSort(arr)
 		local R = {}
 
 		for i= 1, n1 do
-			L[i] = a[l + i]
+			L[i] = a[l + i - 1]
 			
 		end
 

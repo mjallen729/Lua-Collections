@@ -32,19 +32,9 @@ end
 
 qsort = table.clone(biglist)
 qsort2 = table.clone(biglist2)
-tsort = table.clone(biglist)
-tsort2 = table.clone(biglist2)
 
-warn("Numeric Sortings")
-ds.QuickSort(qsort)
-print(isSorted(qsort))
+s = ds.MergeSort(qsort)
+print(s)
 
-ds.TimSort(tsort)
-print(isSorted(tsort))
-
-warn("Stability Sortings")
-ds.QuickSort(qsort2)
-print(qsort2)
-
-ds.TimSort(tsort2)
-print(tsort2)
+s2 = ds.MergeSort(qsort2)
+print(s2)

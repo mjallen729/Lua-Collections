@@ -1,4 +1,4 @@
-# Lua-Collections v1.1
+# Lua-Collections v1.2
  A collections library for Roblox developers.
 
 ## Features
@@ -9,8 +9,10 @@
 	BinarySearchTree
  
 #### Sorting
-	QuickSort
- 
+	Quick Sort
+	Merge Sort
+	Tim Sort
+	
 #### Searching
 	Breadth-First (BFS)
 	BinarySearch

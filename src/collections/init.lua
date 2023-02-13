@@ -1,5 +1,5 @@
 --[[
-Lua Collections v1.0
+Lua Collections v1.2
 DATA STRUCTURES:
 	LinkedList
 	Stack, LinkedStack

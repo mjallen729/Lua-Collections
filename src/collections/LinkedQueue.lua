@@ -44,13 +44,22 @@ function LinkedQueue:pop()
 	return self.buffer:pop(1).data
 end
 
-function LinkedQueue:length()
-	return self.buffer:length()
+function LinkedQueue:size()
+	return self.buffer:size()
+end
+
+function LinkedQueue.__len(t)
+	return t.buffer:size()
 end
 
 -- Returns index of element equal or nil if does not exist
 function LinkedQueue:find(query)
 	return self.buffer:find(query)
+end
+
+function LinkedQueue.__tostring(t)
+	return tostring(t.buffer)
+
 end
 
 return LinkedQueue

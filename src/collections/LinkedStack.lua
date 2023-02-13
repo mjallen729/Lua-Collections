@@ -46,13 +46,22 @@ function LinkedStack:pop()
 	return self.buffer:pop(len).data
 end
 
-function LinkedStack:length()
-	return self.buffer:length()
+function LinkedStack:size()
+	return self.buffer:size()
+end
+
+function LinkedStack.__len(t)
+	return t.buffer:size()
 end
 
 -- Returns index of element equal to the query or nil if does not exist
 function LinkedStack:find(query)
 	return self.buffer:find(query)
+end
+
+function LinkedStack.__tostring(t)
+	return tostring(t.buffer)
+
 end
 
 return LinkedStack

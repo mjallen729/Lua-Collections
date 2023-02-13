@@ -9,7 +9,7 @@ function Stack.new(...)
 	local args = ...
 
 	stack.buffer = {} -- An array-implementated Stack
-	stack.length = 0
+	stack.size = 0
 
 	if args ~= nil then
 		if #{ ... } > 1 then
@@ -59,8 +59,12 @@ function Stack:pop()
 	return elem
 end
 
-function Stack:length()
-	return self.length
+function Stack:size()
+	return self.size
+end
+
+function Stack.__len(t)
+	return t:size()
 end
 
 -- Returns index of element equal to the query or nil if does not exist
@@ -72,6 +76,11 @@ function Stack:find(query)
 	end
 
 	return nil
+end
+
+function Stack.__tostring(t)
+	return t.buffer
+
 end
 
 return Stack

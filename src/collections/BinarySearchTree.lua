@@ -312,9 +312,19 @@ function BinarySearchTree:find(target)
 	
 end
 
-function BinarySearchTree:length()
+function BinarySearchTree:size()
 	return self.size
 	
+end
+
+function BinarySearchTree.__len(t)
+	return t:size()
+	
+end
+
+function BinarySearchTree.__tostring(t)
+	return t.root
+
 end
 
 return BinarySearchTree

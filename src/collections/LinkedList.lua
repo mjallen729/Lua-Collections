@@ -12,7 +12,7 @@ function LinkedList.new(...)
 	local args = ...
 
 	linkedlist.head = nil
-	linkedlist.length = 0
+	linkedlist.size = 0
 	linkedlist.last = nil
 
 	if args ~= nil then
@@ -127,8 +127,14 @@ function LinkedList:pop(index)
 	return removed
 end
 
-function LinkedList:length()
-	return self.length
+function LinkedList:size()
+	return self.size
+
+end
+
+function LinkedList.__len(t)
+	return t:size()
+
 end
 
 -- Returns index of node with data equal to the query or nil if doest not exist
@@ -163,6 +169,11 @@ function LinkedList:atIndex(index)
 	end
 
 	return nil
+end
+
+function LinkedList.__tostring(t)
+	return t.head
+
 end
 
 return LinkedList

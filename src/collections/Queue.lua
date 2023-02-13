@@ -9,7 +9,7 @@ function Queue.new(...)
 	local args = ...
 
 	queue.buffer = {} -- An array-implemented Queue
-	queue.length = 0
+	queue.size = 0
 	queue.head = nil
 
 	if args ~= nil then
@@ -79,7 +79,11 @@ function Queue:pop()
 end
 
 function Queue:size()
-	return self.length
+	return self.size
+end
+
+function Queue.__len(t)
+	return t:size()
 end
 
 -- Returns index of element equal to the query or nil if does not exist
@@ -91,6 +95,11 @@ function Queue:find(query)
 	end
 
 	return nil
+end
+
+function Queue.__tostring(t)
+	return t.buffer
+
 end
 
 return Queue

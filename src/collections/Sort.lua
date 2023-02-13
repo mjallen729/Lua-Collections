@@ -5,8 +5,7 @@ local Sort = {}
 -- Avg time: O(nlog(n))
 -- Worst space: O(log(n))
 -- Low and high are optional parameters (nil recommended)
--- Stable: No
--- In-Place: Yes
+-- Stable: No | In-Place: Yes
 function Sort.QuickSort(arr, low, high)
 	local function partition(arr, low, high)
 		local pivot = arr[high]
@@ -64,84 +63,88 @@ end
 
 -- Avg time: O(nlog(n))
 -- Worst space: O(n)
--- Stable: Yes
--- In-Place: No
+-- Stable: Yes | In-Place: Yes
 function Sort.MergeSort(arr)
-	local function merge(a, l, m, r)
-	    local n1 = m - l + 1
+	local function merge(arr, l, m, r)
+		local n1 = m - l + 1
 		local n2 = r - m
+
+		-- create temp arrays
 		local L = {}
 		local R = {}
 
-		for i= 1, n1 do
-			L[i] = a[l + i - 1]
-			
+		-- copy data to temp arrays L[] and R[]
+		for i = 1, n1 do
+			L[i] = arr[l + i - 1]
+		end
+		for j = 1, n2 do
+			R[j] = arr[m + j]
 		end
 
-		for i= 1, n2 do
-			R[i] = a[m + i + 1]
-
-		end
-		
-		local i, j, k = 0, 0, l
-		while i < n1 and j < n2 do
+		-- merge the temp arrays back into arr[l..r]
+		local i = 1
+		local j = 1
+		local k = l
+		while i <= n1 and j <= n2 do
 			if L[i] <= R[j] then
-				a[k] = L[i]
-				i += 1
-
-			else 
-				a[k] = R[j]
-				j += 1
-
+				arr[k] = L[i]
+				i = i + 1
+			else
+				arr[k] = R[j]
+				j = j + 1
 			end
-
-			k += 1
-
-		end
-	
-		while i < n1 do
-			a[k] = L[i]
-			i += 1
-			k += 1
-
-		end
-	
-		while j < n2 do
-			a[k] = R[j]
-			j += 1
-			k += 1
-
+			k = k + 1
 		end
 
+		-- copy the remaining elements of L[], if there are any
+		while i <= n1 do
+			arr[k] = L[i]
+			i = i + 1
+			k = k + 1
+		end
+
+		-- copy the remaining elements of R[], if there are any
+		while j <= n2 do
+			arr[k] = R[j]
+			j = j + 1
+			k = k + 1
+		end
 	end
 
-    local width = 1
-    local n = #arr
+	local function bottomUpMergeSort(arr)
+		local n = #arr
+		local curr_size
+		local left_start
 
-    while width < n do
-        local l = 0
+		-- sort individual subarrays of size 1
+		for i = 1, n, 1 do
+			curr_size = 1
+			while curr_size < n do
+				-- pick starting point of left sub array. We are merging arr[left_start..left_start+curr_size-1]
+				-- and arr[left_start+curr_size, left_start + 2*curr_size - 1]
+				-- Repeat until we have dealt with all subarrays of current size.
+				left_start = 1
+				while left_start < n do
+					-- find ending point of left sub array
+					-- mid+1 is starting point of right
+					local mid = left_start + curr_size - 1
+					local right_end = math.min(left_start + 2 * curr_size - 1, n)
 
-        while l < n do
-            local r = math.min(l + (width * 2 - 1), n - 1)
-            local m = math.min(l + width - 1, n - 1)
-
-            merge(arr, l, m, r)
-            l += width * 2
-
+					-- merge sub arrays
+					merge(arr, left_start, mid, right_end)
+					left_start = left_start + 2 * curr_size
+				end
+				curr_size = 2 * curr_size
+			end
 		end
-
-        width *= 2
-
 	end
 
-    return arr
-
+	bottomUpMergeSort(arr)
 end
 
 -- Avg time: O(nlog(n))
 -- Worst space: O(n)
--- Stable: Yes
--- In-Place: Yes
+-- Stable: Yes | In-Place: Yes
 function Sort.TimSort(arr)
 	local function insertionSort(arr, left, right)
 		for i = left + 1, right do

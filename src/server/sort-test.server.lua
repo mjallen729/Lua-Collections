@@ -1,4 +1,4 @@
-local ds = require(game.ServerScriptService.collections)
+local ds = require(game.ServerScriptService.Collections)
 local dsort = ds.Sort
 
 function compare(arr1, arr2)

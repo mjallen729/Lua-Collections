@@ -1,4 +1,5 @@
 DATA STRUCTURES:
+	Dequeue
 	RedBlackTree
 	MinHeap
 	MaxHeap

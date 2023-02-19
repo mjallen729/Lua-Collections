@@ -19,4 +19,4 @@
 	InOrder, PostOrder, PreOrder
 
 ## Updates
-Feel free to read ``TODO.txt`` to see what other stuff I'm working on implementing. You can also open an issue to request another feature.
+You can read ``TODO.txt`` to see what other stuff I'm working on implementing. Also feel free to open an issue to request another feature or report a bug.
